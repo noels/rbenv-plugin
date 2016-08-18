@@ -18,6 +18,7 @@ module Rbenv
     class Git < Base
       def checkout
         execute = []
+        execute << "echo $PATH"
         execute << "git clone #{repository.shellescape} #{destination.shellescape}"
         execute << "cd #{destination.shellescape}"
         execute << "git checkout #{revision.shellescape}"
